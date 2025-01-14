@@ -1,4 +1,5 @@
 QT       += core gui
+QT += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,10 +11,14 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    ocrprocessor.cpp \
+    translator.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    ocrprocessor.h \
+    translator.h
 
 FORMS += \
     mainwindow.ui
@@ -22,6 +27,9 @@ TRANSLATIONS += \
     ScreenTranslate_en_001.ts
 CONFIG += lrelease
 CONFIG += embed_translations
+
+INCLUDEPATH += C:/ApplicationInstall/Tesseract-OCR/include
+LIBS += -LC:/ApplicationInstall/Tesseract-OCR/lib -ltesseract
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
